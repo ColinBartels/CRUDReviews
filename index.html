@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>USB Pet Rock</title>
+		<meta charset="UTF-8">
+
+	    <!-- jQuery, Bootstrap -->
+	    <script src="https://code.jquery.com/jquery.min.js"></script>
+	    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+	    <!-- Parse -->
+	    <script src="//www.parsecdn.com/js/parse-1.6.0.min.js"></script>
+
+	    <!-- Rating library-->
+	    <script type="text/javascript" src="lib/jquery.raty.js"></script>
+
+	    <script type="text/javascript" src="review.js"></script>
+    	<link rel="stylesheet" href="main.css"/>
+	</head>
+
+	<body>
+	<div class="container">
+		<h1>USB Pet Rock</h1>
+		<img src="rock.jpg" alt="pet rock">
+		<div id="average">
+			<p>Average Rating: </p>
+			<div id="avgRating"></div>
+		</div>
+		<p>Everything the classic pet rock can do, now with usb support!</p>
+		<h3>Features</h3>
+		<ul>
+			<li>Pet Rock Plugs in with USB and gives you love!</li>
+			<li>No feed or care needed</li>
+			<li>Draws no power</li>
+			<li>Compatible with any OS including Mac, Windows and Linux</li>
+			<li>Each rock is unique (Please allow for natural variations in your USB Pet Rock)</li>
+			<li>Includes 18" long USB cable</li>
+		</ul>
+		<h2>Write a review!</h2>
+		<form class="form-group">
+			<div id="setRating"></div> <br/>
+			<input type="text" placeholder="a title for your review" class="form-control" id="title"> <br/>
+			<input type="text" placeholder="what did you think of this?" class="form-control" id="content"> <br/>
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+		<h2>Reviews</h2>
+		<div class="container" id="reviews"></div>
+	</div>
+		
+	</body>
+</html>
