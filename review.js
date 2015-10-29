@@ -1,3 +1,8 @@
+//Colin Bartels
+//INFO 343 C 
+//This file manages the review section of the website
+
+//Initializes everything after page is loaded
 $(document).ready(function() {
 	$('#avgRating').raty({readOnly: true, half: true});
 	$('#setRating').raty();
@@ -8,7 +13,7 @@ $(document).ready(function() {
 
 
 
-	//Saves form inputs to Parse on form submit
+	//Saves form inputs to Parse on form submit and adds the new review to the page
 	$('form').submit(function() {
 		var NewReview = new Review();
 		var title = $('#title').val();
@@ -26,6 +31,7 @@ $(document).ready(function() {
 		return false;
 	});
 
+	//Queries the Parse database for all of the existing reviews
 	function getReviews() {
 		var query = new Parse.Query(Review);
 		query.find({
@@ -35,6 +41,8 @@ $(document).ready(function() {
 		});
 	}
 
+	//Takes the list of reviews and displays them on the page
+	//Also binds click functions to the necessary buttons
 	function buildReviews(results) {
 		$('#reviews').empty();
 		var ratingTotal = 0;
@@ -68,8 +76,8 @@ $(document).ready(function() {
 		$('#avgRating').raty({score: ratingAvg});
 	}
 
+	//Updates the number of upvotes and total votes when the up arrow is clicked
 	function sendUpvote() {
-
 		var parentDiv = $(this).parent().parent();
 		var id = parentDiv.attr('id');
 		var query = new Parse.Query(Review);
@@ -83,6 +91,7 @@ $(document).ready(function() {
 		getReviews();
 	}
 
+	//Updates the number of total votes when the down arrow is clicked
 	function sendDownvote() {
 		var parentDiv = $(this).parent().parent();
 		var id = parentDiv.attr('id');
@@ -96,6 +105,7 @@ $(document).ready(function() {
 		getReviews();
 	}
 
+	//Deletes the selected review from the page and Parse database
 	function deleteReview() {
 		var review = $(this).parent();
 		var id = review.attr('id');
